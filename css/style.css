@@ -17,7 +17,7 @@ body, html{
     width: 100%;
     height: 100vh;
     padding: 0;
-    overflow: hidden;*/
+    overflow: hidden;
     font-family: 'Lato', sans-serif;
 }
 /* ----- End Header HOME ----- */
@@ -44,9 +44,10 @@ body, html{
 .navigation{
     margin: 2%;
     padding: 0;
+    font-size : 0;
     float: right;  
     overflow: hidden;  
-    animation: opacity 7s;
+    animation: opacity 7s;;
 }
 .navigation > ul > li{
     list-style-type: none;
@@ -63,7 +64,40 @@ body, html{
     font-size: 1.1rem;
     font-family: 'Roboto Condensed', sans-serif;
 }
-.underLineNav:after {
+
+/*----------Submenu 'Nos activités'---------*/
+
+.navigation ul li ul{
+    list-style-type: none;
+    overflow: hidden;
+    display: none;
+    margin-top: 50px;
+    margin-left: -25px;
+}
+
+.navigation ul li ul a{
+    font-size: 17px;
+}
+
+.navigation ul li:hover ul{
+    display: block;
+}
+
+.navigation li:hover ul li{
+    float: left;
+}
+
+.navigation li ul{
+    position: absolute;
+}
+
+.subnav-underlined{
+    line-height : 30%;
+}
+
+/*----------END Submenu 'Nos activités'---------*/
+
+.underLineNav:after, .subnav-underlined:after {
     content: "";
     height: 3px;
     background-color: #4d8fdb;
@@ -73,11 +107,13 @@ body, html{
     bottom: -10px;
     width: 0;    
 }
-.underLineNav:hover {
+
+.underLineNav:hover, .subnav-underlined:hover {
     text-decoration: none;
     color: #707070;
 }
-.underLineNav:hover:after{
+
+.underLineNav:hover:after, .subnav-underlined:hover:after{
     width: 100%;
 }
 
@@ -187,3 +223,103 @@ body, html{
     margin: 0;
 }
 /* ----- END FOOTER ----- */
+        
+/*-------------------------------------------SLIDESHOW--------------------------------------------------*/
+
+/* Slider */
+#slider{
+  width: 100%;
+  height:100%;
+  position:relative;
+  overflow:hidden;
+  padding-bottom: 10px;
+}
+
+.slides{
+  width:400%;
+  height:100%;
+  position:relative;
+  -webkit-animation:slide 10s infinite;
+  -moz-animation:slide 10s infinite;
+  animation:slide 10s infinite;
+}
+.slider{
+  width:25%;
+  height:100%;
+  float:left;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Animation */
+@keyframes slide{
+
+  21%{
+    margin-left:0%;
+  }
+
+  25%{
+    margin-left:-100%;
+  }
+
+  46%{
+    margin-left:-100%;
+  }
+
+  50%{
+    margin-left:-200%;
+  }
+
+  71%{
+    margin-left:-200%;
+  }
+
+  75%{
+    margin-left:-300%;
+  }
+
+  98%{
+    margin-left:-300%;
+  }
+}
+
+
+
+ /*-----------------------------------------------SPLITSCREEN--------------------------------------------*/
+
+
+ .parent {
+  display: flex;
+}
+
+.item{
+  overflow:hidden;
+}
+
+.picshow{
+  width: auto;
+  margin-left: 30vw;
+  margin-right: 0;
+}
+
+.text {
+  color: #0A0A0A;
+  background: #f0e6da;
+  padding: 15px;
+  height: 300px;
+  width:110vw;
+  margin-right:5vw;
+}
+
+@media screen and (max-width: 600px){
+  
+  .parent {
+    flex-direction: column-reverse;  
+  }
+    
+  .item {
+    margin-left: 25vw;
+    width: 100%;
+    height: auto; 
+  }
+}
